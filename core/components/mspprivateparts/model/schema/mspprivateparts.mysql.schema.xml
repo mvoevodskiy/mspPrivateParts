@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model package="mspprivateparts" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM" phpdoc-package="mspprivateparts"
+       version="1.1">
+
+    <object class="mspPrivatePartsOrder" table="ms2_private_parts_orders" extends="xPDOSimpleObject">
+        <field key="order_id" dbtype="varchar" phptype="string" precision="255" null="false"/>
+        <field key="token" dbtype="varchar" phptype="string" precision="255" null="false"/>
+
+        <index alias="order_id" name="order_id" primary="false" unique="false" type="BTREE">
+            <column key="order_id" length="" collation="A" null="false"/>
+        </index>
+        <index alias="token" name="token" primary="false" unique="false" type="BTREE">
+            <column key="token" length="" collation="A" null="false"/>
+        </index>
+
+        <aggregate alias="Order" class="msOrder" local="id" foreign="id" cardinality="one" owner="foreign"/>
+    </object>
+
+</model>
